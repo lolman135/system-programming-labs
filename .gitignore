@@ -33,3 +33,6 @@ Drivers/CMSIS/NN/
 Drivers/CMSIS/RTOS/
 Drivers/CMSIS/RTOS2/
 Drivers/CMSIS/Documentation/
+
+# Custom
+*.vcd
