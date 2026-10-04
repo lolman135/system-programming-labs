@@ -1,2 +1,35 @@
+# Build results
+build/
+
+# STM32CubeIDE
+Debug/
+Release/
+
+# Visual Studio Code
+.vscode/
+
+# Operating system files
 .DS_Store
-.vscode
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.log
+*.bak
+*~
+
+# Object and dependency files
+*.o
+*.d
+
+# Generated binaries
+*.bin
+*.hex
+*.elf
+*.map
+# Unused CMSIS libraries
+Drivers/CMSIS/DSP/
+Drivers/CMSIS/NN/
+Drivers/CMSIS/RTOS/
+Drivers/CMSIS/RTOS2/
+Drivers/CMSIS/Documentation/

@@ -8,4 +8,4 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     python3 git ca-certificates srecord \
     && rm -rf /var/lib/apt/lists/*
 
-WORKDIR /workspac
+WORKDIR /workspace
