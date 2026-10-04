@@ -18,7 +18,7 @@ clean:
 	$(DOCKER_RUN) make -C firmware clean
 
 flash: build check-wokwi
-	$(WOKWI_CLI) --timeout 5000 --expect-text "Bring-up checks" --fail-text "FAIL" .
+	$(WOKWI_CLI) --timeout 5000 --expect-text "Bring-up checks" --fail-text "FAIL"
 
 monitor: check-wokwi
 	$(WOKWI_CLI) --interactive --timeout $(SIM_TIMEOUT) .

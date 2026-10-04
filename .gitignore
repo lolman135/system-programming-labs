@@ -36,3 +36,4 @@ Drivers/CMSIS/Documentation/
 
 # Custom
 *.vcd
+wokvi.vcd
