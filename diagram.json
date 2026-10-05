@@ -1,0 +1,46 @@
+{
+  "version": 1,
+  "author": "heliostat",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-st-nucleo-c031c6", "id": "nucleo", "top": 0, "left": 0, "attrs": {} },
+
+    { "type": "wokwi-photoresistor-sensor", "id": "ldr_tl", "top": -320, "left": 380, "attrs": { "lux": "500" } },
+    { "type": "wokwi-photoresistor-sensor", "id": "ldr_tr", "top": -240, "left": 380, "attrs": { "lux": "500" } },
+    { "type": "wokwi-photoresistor-sensor", "id": "ldr_bl", "top": -160, "left": 380, "attrs": { "lux": "500" } },
+    { "type": "wokwi-photoresistor-sensor", "id": "ldr_br", "top": -80,  "left": 380, "attrs": { "lux": "500" } },
+
+    { "type": "wokwi-servo", "id": "servo_az", "top": 200, "left": 380, "attrs": {} },
+    { "type": "wokwi-servo", "id": "servo_el", "top": 330, "left": 380, "attrs": {} },
+
+    { "type": "board-ssd1306", "id": "oled", "top": -250, "left": -280, "attrs": { "i2cAddress": "0x3c" } },
+    { "type": "wokwi-microsd-card", "id": "sd", "top": 100, "left": -300, "attrs": {} },
+    { "type": "wokwi-logic-analyzer", "id": "logic", "top": 320, "left": -300, "attrs": {} }
+  ],
+  "connections": [
+    [ "nucleo:PA2", "$serialMonitor:RX", "", [] ],
+    [ "nucleo:PA3", "$serialMonitor:TX", "", [] ],
+
+    [ "ldr_tl:VCC", "nucleo:3V3", "red", [] ],   [ "ldr_tl:GND", "nucleo:GND.1", "black", [] ], [ "ldr_tl:AO", "nucleo:PA0", "orange", [] ],
+    [ "ldr_tr:VCC", "nucleo:3V3", "red", [] ],   [ "ldr_tr:GND", "nucleo:GND.1", "black", [] ], [ "ldr_tr:AO", "nucleo:PA1", "orange", [] ],
+    [ "ldr_bl:VCC", "nucleo:3V3", "red", [] ],   [ "ldr_bl:GND", "nucleo:GND.1", "black", [] ], [ "ldr_bl:AO", "nucleo:PA4", "orange", [] ],
+    [ "ldr_br:VCC", "nucleo:3V3", "red", [] ],   [ "ldr_br:GND", "nucleo:GND.1", "black", [] ], [ "ldr_br:AO", "nucleo:PB1", "orange", [] ],
+
+    [ "servo_az:V+", "nucleo:3V3", "red", [] ],  [ "servo_az:GND", "nucleo:GND.1", "black", [] ], [ "servo_az:PWM", "nucleo:PA6", "blue", [] ],
+    [ "servo_el:V+", "nucleo:3V3", "red", [] ],  [ "servo_el:GND", "nucleo:GND.1", "black", [] ], [ "servo_el:PWM", "nucleo:PA7", "blue", [] ],
+
+    [ "oled:VCC", "nucleo:3V3", "red", [] ], [ "oled:GND", "nucleo:GND.1", "black", [] ],
+    [ "oled:SCL", "nucleo:PB8", "yellow", [] ], [ "oled:SDA", "nucleo:PB9", "green", [] ],
+
+    [ "sd:VCC", "nucleo:3V3", "red", [] ], [ "sd:GND", "nucleo:GND.1", "black", [] ],
+    [ "sd:SCK", "nucleo:PB3", "violet", [] ], [ "sd:DO", "nucleo:PB4", "violet", [] ],
+    [ "sd:DI", "nucleo:PB5", "violet", [] ],  [ "sd:CS", "nucleo:PB0", "violet", [] ],
+
+    [ "logic:D0", "nucleo:PB8", "yellow", [] ],
+    [ "logic:D1", "nucleo:PB9", "green", [] ],
+    [ "logic:D2", "nucleo:PA6", "blue", [] ],
+    [ "logic:D3", "nucleo:PB3", "violet", [] ],
+    [ "logic:GND", "nucleo:GND.1", "black", [] ]
+  ],
+  "dependencies": {}
+}
